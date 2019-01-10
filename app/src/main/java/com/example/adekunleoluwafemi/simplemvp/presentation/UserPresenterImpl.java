@@ -27,6 +27,9 @@ public class UserPresenterImpl implements UserPresenter {
 
     @Override
     public void setView(UserView view) {
+        if(view == null) {
+            throw new ViewNotFoundException();
+        }
         this.view = view;
         loadUserDetails();
     }

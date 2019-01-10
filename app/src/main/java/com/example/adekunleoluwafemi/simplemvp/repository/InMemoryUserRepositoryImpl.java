@@ -3,7 +3,7 @@ package com.example.adekunleoluwafemi.simplemvp.repository;
 import com.example.adekunleoluwafemi.simplemvp.model.User;
 
 public class InMemoryUserRepositoryImpl implements UserRepository{
-    private User u;
+    private User user;
 
     /**
      * Gets the user from memory.
@@ -16,27 +16,27 @@ public class InMemoryUserRepositoryImpl implements UserRepository{
         // Normally this would go to a DB/etc and fetch the user with an ID.
         // Here though, we're just doing something in memory, so we're kind of just
         // faking it out.
-        if (u == null) {
-            u = new User();
-            u.setId(id);
-            u.setFirstName("Captain");
-            u.setLastName("Crunch");
+        if (user == null) {
+            user = new User();
+            user.setId(id);
+            user.setFirstName("Captain");
+            user.setLastName("Crunch");
         }
-        return u;
+        return user;
     }
 
     /**
      * Save's the in-memory user.
      *
-     * @param u The user.
+     * @param user The user.
      */
     @Override
-    public void save(User u) {
-        if(this.u == null) {
-            this.u = getUser(0); // create the in memory user.
+    public void save(User user) {
+        if(this.user == null) {
+            this.user = getUser(0); // create the in memory user.
         }
-        this.u.setId(u.getId());
-        this.u.setFirstName(u.getFirstName());
-        this.u.setLastName(u.getLastName());
+        this.user.setId(user.getId());
+        this.user.setFirstName(user.getFirstName());
+        this.user.setLastName(user.getLastName());
     }
 }
